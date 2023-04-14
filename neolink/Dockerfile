@@ -9,32 +9,34 @@ RUN apt-get -y install \
   libgstrtspserver-1.0-0 \
   libgstreamer1.0-0 \
   libgstreamer-plugins-bad1.0-0 \
+  gstreamer1.0-x \
+  gstreamer1.0-plugins-base \
   gstreamer1.0-plugins-good \
   gstreamer1.0-plugins-bad
 
-RUN wget https://nightly.link/thirtythreeforty/neolink/workflows/build/master/release-arm64-buster.zip
-RUN unzip release-arm64-buster.zip
-RUN cp neolink /bin/neolink_aarch64
+RUN wget https://github.com/QuantumEntangledAndy/neolink/releases/latest/download/neolink_linux_arm64.zip
+RUN unzip neolink_linux_arm64.zip
+RUN cp neolink_linux_arm64/neolink /bin/neolink_aarch64
 RUN chmod +x /bin/neolink_aarch64
-RUN rm release-arm64-buster.zip neolink neolink.d
+RUN rm neolink_linux_arm64.zip neolink_linux_arm64/ -R
 
-RUN wget https://nightly.link/thirtythreeforty/neolink/workflows/build/master/release-ubuntu-20.04.zip
-RUN unzip release-ubuntu-20.04.zip
-RUN cp neolink /bin/neolink_amd64
+RUN wget https://github.com/QuantumEntangledAndy/neolink/releases/latest/download/neolink_linux_x86_64_ubuntu.zip
+RUN unzip neolink_linux_x86_64_ubuntu.zip
+RUN cp neolink_linux_x86_64_ubuntu/neolink /bin/neolink_amd64
 RUN chmod +x /bin/neolink_amd64
-RUN rm release-ubuntu-20.04.zip neolink neolink.d
+RUN rm neolink_linux_x86_64_ubuntu.zip neolink_linux_x86_64_ubuntu/ -R
 
-RUN wget https://nightly.link/thirtythreeforty/neolink/workflows/build/master/release-armhf-buster.zip
-RUN unzip release-armhf-buster.zip
-RUN cp neolink /bin/neolink_armhf
+RUN wget https://github.com/QuantumEntangledAndy/neolink/releases/latest/download/neolink_linux_armhf.zip
+RUN unzip neolink_linux_armhf.zip
+RUN cp neolink_linux_armhf/neolink /bin/neolink_armhf
 RUN chmod +x /bin/neolink_armhf
-RUN rm release-armhf-buster.zip neolink neolink.d
+RUN rm neolink_linux_armhf.zip neolink_linux_armhf/ -R
 
-RUN wget https://nightly.link/thirtythreeforty/neolink/workflows/build/master/release-i386-buster.zip
-RUN unzip release-i386-buster.zip
-RUN cp neolink /bin/neolink_i386
+RUN wget https://github.com/QuantumEntangledAndy/neolink/releases/latest/download/neolink_linux_i386.zip
+RUN unzip neolink_linux_i386.zip
+RUN cp neolink_linux_i386/neolink /bin/neolink_i386
 RUN chmod +x /bin/neolink_i386
-RUN rm release-i386-buster.zip neolink neolink.d
+RUN rm neolink_linux_i386.zip neolink_linux_i386/ -R
 
 # Copy data for add-on
 COPY run.sh /
